@@ -10,6 +10,7 @@ const PodcastDisplay = () => {
   const [podcasts, setPodcasts] = useState([]);
   const [podcastPreview, setPodcastPreview] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [originalPodcasts, setOriginalPodcasts] = useState([]);
 
   useEffect(() => {
     fetchPodcasts();
@@ -19,6 +20,7 @@ const PodcastDisplay = () => {
     const response = await fetch("https://podcast-api.netlify.app/shows");
     const data = await response.json();
     setPodcasts(data);
+    setOriginalPodcasts(data);
     setIsLoading((prevIsLoading) => !prevIsLoading);
   };
 
@@ -42,35 +44,51 @@ const PodcastDisplay = () => {
 
   const handleSearch = (results) => setPodcasts(results);
 
-  const handleSort = (sortConfig) => {
-    const { criteria, direction } = sortConfig;
-    const sortedPodcasts = [...podcasts];
-
+  const handleSort = (sortConfig, podcasts, setPodcasts) => {
+    const { criteria, direction, genre } = sortConfig;
+    let filteredPodcasts;
+  
     switch (criteria) {
       case "title":
-        sortedPodcasts.sort((a, b) =>
+        filteredPodcasts = [...podcasts].sort((a, b) =>
           direction === "asc"
             ? a.title.localeCompare(b.title)
             : b.title.localeCompare(a.title)
         );
         break;
       case "date":
-        sortedPodcasts.sort((a, b) =>
+        filteredPodcasts = [...podcasts].sort((a, b) =>
           direction === "asc"
             ? new Date(b.updated) - new Date(a.updated)
             : new Date(a.updated) - new Date(b.updated)
         );
         break;
+      case "genre":
+        if (genre !== "all") {
+          filteredPodcasts = [...podcasts].filter((podcast) =>
+            podcast.genres.includes(parseInt(genre))
+          );
+        } else {
+          filteredPodcasts = [...originalPodcasts];
+        }
+        break;
       default:
+        filteredPodcasts = [...originalPodcasts];
     }
-
-    setPodcasts(sortedPodcasts);
+  
+    setPodcasts(filteredPodcasts);
   };
+  
 
   return (
     <div>
       <Carousel />
-      <FilterControls onSearch={handleSearch} onSortChange={handleSort} />
+      <FilterControls
+        onSearch={handleSearch}
+        onSortChange={handleSort}
+        podcasts={podcasts}
+        setPodcasts={setPodcasts}
+      />
       <PodcastItems
         overlayOpen={overlayOpen}
         handleClosePreview={handleClosePreview}
