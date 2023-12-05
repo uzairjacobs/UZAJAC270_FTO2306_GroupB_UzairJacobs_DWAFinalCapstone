@@ -1,8 +1,8 @@
 import React from "react";
-import Loading from "./Loading";
-import PodcastItem from "./PodcastItem";
-import PodcastDescription from "./PodcastDescription";
-import PodcastSeasonsModal from "./PodcastSeasonsModal";
+import Loading from "./Loading.jsx";
+import PodcastItem from "./PodcastItem.jsx";
+import PodcastDescription from "./PodcastDescription.jsx";
+import PodcastSeasonsModal from "./PodcastSeasonsModal.jsx";
 
 const PodcastItems = ({
   podcasts,

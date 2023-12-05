@@ -1,7 +1,7 @@
 import React from "react";
 import { format } from "date-fns";
 import { enUS } from "date-fns/locale";
-import Episode from "./Episode";
+import Episode from "./Episode.jsx";
 
 const SeasonDetails = ({
   image,

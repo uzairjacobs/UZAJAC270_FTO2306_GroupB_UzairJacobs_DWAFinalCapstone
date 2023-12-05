@@ -1,6 +1,6 @@
 import React from "react";
-import Sort from "./Sort";
-import Search from "./Search";
+import Sort from "./Sort.jsx";
+import Search from "./Search.jsx";
 
 const FilterControls = ({ onSortChange, onSearch, podcasts, setPodcasts }) => {
   const handleSortChange = (sortConfig) => {

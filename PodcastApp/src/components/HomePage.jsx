@@ -1,5 +1,5 @@
-import Navbar from "./Navbar";
-import PodcastDisplay from "./PodcastDIsplay";
+import Navbar from "./Navbar.jsx";
+import PodcastDisplay from "./PodcastDisplay.jsx";
 
 function HomePage() {
   return (

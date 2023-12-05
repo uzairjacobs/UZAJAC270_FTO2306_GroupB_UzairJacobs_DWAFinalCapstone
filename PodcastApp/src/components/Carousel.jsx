@@ -1,8 +1,8 @@
 // Import necessary React components
 import React, { useEffect, useState } from "react";
-import PodcastDescription from "./PodcastDescription";
-import PodcastSeasonsModal from "./PodcastSeasonsModal";
-import Loading from "./Loading";
+import PodcastDescription from "./PodcastDescription.jsx";
+import PodcastSeasonsModal from "./PodcastSeasonsModal.jsx";
+import Loading from "./Loading.jsx";
 
 // Define the Carousel component
 export default function Carousel() {

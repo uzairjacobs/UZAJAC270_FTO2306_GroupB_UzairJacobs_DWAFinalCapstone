@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import SeasonDetails from "./SeasonDetails";
+import SeasonDetails from "./SeasonDetails.jsx";
 
 const PodcastSeasonsModal = ({ seasonId, overlayOpen, onClose }) => {
   const [podcastSeasons, setPodcastSeasons] = useState(null);

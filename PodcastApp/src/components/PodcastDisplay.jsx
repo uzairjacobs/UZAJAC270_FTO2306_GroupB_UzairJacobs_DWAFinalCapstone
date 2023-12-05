@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import Loading from "./Loading";
-import Carousel from "./Carousel";
-import FilterControls from "./FilterControls";
-import PodcastItems from "./PodcastItems";
+import Loading from "./Loading.jsx";
+import Carousel from "./Carousel.jsx";
+import FilterControls from "./FilterControls.jsx";
+import PodcastItems from "./PodcastItems.jsx";
 
 const PodcastDisplay = () => {
   const [seasonButton, setSeasonButton] = useState("");
