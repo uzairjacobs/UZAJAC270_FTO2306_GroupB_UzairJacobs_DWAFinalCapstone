@@ -9,7 +9,6 @@ export default function Navbar() {
       <div className="nav-items">
         <ul>
           <li>Favourites</li>
-          <li>Login</li>
         </ul>
       </div>
     </nav>
