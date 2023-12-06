@@ -1,4 +1,4 @@
 [[headers]]
-  for = "*.jsx"
-  [headers.values]
-    Content-Type = "application/javascript"
+ for = "*.js"
+ [headers.values]
+    X-Content-Type-Options = "application/javascript"
