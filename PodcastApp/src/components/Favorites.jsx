@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import FilterControls from "./FilterControls";
 
 const Favorites = (favorite) => {
  
