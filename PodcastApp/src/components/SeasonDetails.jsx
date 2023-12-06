@@ -13,6 +13,7 @@ const SeasonDetails = ({
   handleSeasonChange,
   onClose,
   podcastSeasonsList,
+  onToggleFavorite, 
 }) => {
   const selectedSeasonData =
     selectedSeason &&
@@ -66,10 +67,11 @@ const SeasonDetails = ({
         <div className="episode-container">
           {selectedSeasonData.map((episode) => (
             <Episode
-              key={episode.episode}
-              episodeData={episode}
-              image={image}
-            />
+            key={episode.episode}
+            episodeData={episode}
+            image={image}
+            onToggleFavorite={onToggleFavorite}
+          />
           ))}
         </div>
       );

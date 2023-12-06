@@ -14,6 +14,7 @@ const PodcastItems = ({
   seasonButton,
   overlayOpen,
   onCloseDialog,
+  onToggleFavorite, 
 }) => {
   return (
     <div className="podcast-list">
@@ -25,7 +26,7 @@ const PodcastItems = ({
             key={podcast.id}
             podcast={podcast}
             togglePreview={togglePreview}
-            
+            onToggleFavorite={onToggleFavorite}
           />
         ))
       )}
@@ -47,6 +48,7 @@ const PodcastItems = ({
           seasonId={seasonButton}
           overlayOpen={overlayOpen}
           onClose={onCloseDialog}
+          onToggleFavorite={onToggleFavorite}
         />
       )}
     </div>

@@ -3,6 +3,8 @@ import Loading from "./Loading.jsx";
 import Carousel from "./Carousel.jsx";
 import FilterControls from "./FilterControls.jsx";
 import PodcastItems from "./PodcastItems.jsx";
+import Favorites from "./Favorites.jsx";
+import Navbar from "./Navbar.jsx";
 
 const PodcastDisplay = () => {
   const [seasonButton, setSeasonButton] = useState("");
@@ -11,6 +13,7 @@ const PodcastDisplay = () => {
   const [podcastPreview, setPodcastPreview] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [originalPodcasts, setOriginalPodcasts] = useState([]);
+  const [favorites, setFavorites] = useState([]);
 
   useEffect(() => {
     fetchPodcasts();
@@ -44,6 +47,11 @@ const PodcastDisplay = () => {
 
   const handleSearch = (results) => setPodcasts(results);
 
+  const onToggleFavorite = () => {
+    console.log("Toggling favorite:", episode);
+  };
+
+  
   const handleSort = (sortConfig, podcasts, setPodcasts) => {
     const { criteria, direction, genre } = sortConfig;
     let filteredPodcasts;
@@ -82,6 +90,7 @@ const PodcastDisplay = () => {
 
   return (
     <div>
+      <Navbar favorites={favorites} /> 
       <Carousel />
       <FilterControls
         onSearch={handleSearch}
@@ -99,6 +108,7 @@ const PodcastDisplay = () => {
         seasonButton={seasonButton}
         togglePreview={togglePreview}
         podcasts={podcasts}
+        onToggleFavorite={onToggleFavorite}
       />
     </div>
   );

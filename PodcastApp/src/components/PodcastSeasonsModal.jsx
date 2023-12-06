@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SeasonDetails from "./SeasonDetails.jsx";
 
-const PodcastSeasonsModal = ({ seasonId, overlayOpen, onClose }) => {
+const PodcastSeasonsModal = ({ seasonId, overlayOpen, onClose, onToggleFavorite }) => {
   const [podcastSeasons, setPodcastSeasons] = useState(null);
   const [selectedSeason, setSelectedSeason] = useState("");
 
@@ -69,6 +69,7 @@ const PodcastSeasonsModal = ({ seasonId, overlayOpen, onClose }) => {
       handleSeasonChange={handleSeasonChange}
       onClose={onClose}
       podcastSeasonsList={podcastSeasonsList}
+      onToggleFavorite={onToggleFavorite}
     />
   );
 };

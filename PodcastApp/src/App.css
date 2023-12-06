@@ -538,3 +538,39 @@ body {
     margin-top: 5px;
   }
 }
+
+.favorites-overlay {
+  background-color: #000000;
+z-index: 999;
+height: 80%;
+width: 80%;
+position: fixed;
+top: 10%;
+left: 10%;
+overflow-y: auto;
+color: #fff;
+border-radius: 10px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+}
+
+
+
+
+/* Styles for the container inside the overlay */
+.favorites-container {
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+}
+
+/* Close button inside the container */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: white;
+}
