@@ -1,4 +1,14 @@
+import React, { useState } from "react";
+import Favorites from "./Favorites";
+
 export default function Navbar() {
+  const [showFavoritesOverlay, setShowFavoritesOverlay] = useState(false);
+
+  const toggleFavoritesOverlay = () => {
+    setShowFavoritesOverlay((prevShowFavoritesOverlay) => !prevShowFavoritesOverlay);
+  };
+
+
   return (
     <nav className="nav-bar">
       <div className="podcast-nav">
@@ -8,9 +18,21 @@ export default function Navbar() {
 
       <div className="nav-items">
         <ul>
-          <li>Favourites</li>
+          <li onClick={toggleFavoritesOverlay}>Favourites</li>
         </ul>
       </div>
+
+      {showFavoritesOverlay && (
+        <div className="favorites-overlay">
+          <div className="favorites-container">
+            <button onClick={toggleFavoritesOverlay} className="close-button">
+              Close
+            </button>
+            
+            <Favorites  />
+          </div>
+        </div>
+      )}
     </nav>
   );
 }
